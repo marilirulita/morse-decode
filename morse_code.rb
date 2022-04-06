@@ -4,9 +4,16 @@ $morse = {a: '.-', b: '-...', c: '-.-.', d: '-..', e: '.', f: '.
 ...-', w: '.--', x: '-..-', y: '-.--', z: '--..'}
 
 def decode_char(str)
-  $morse.each {|k, v| puts k.upcase if v == str}
+  $morse.each {|k, v| return k.upcase if v == str}
 end
 
-decode_char(".-")
-decode_char("..")
-decode_char("--..")
+def decode_word(str)
+  letters = str.split("\s")
+  solution = ""
+  letters.each do |l|
+    solution += decode_char(l).to_s
+  end
+  solution
+end
+
+puts decode_word("-- -.--")
