@@ -1,6 +1,6 @@
-$morse = {a: '.-', b: '-...', c: '-.-.', d: '-..', e: '.', f: '.
-.-.', g: '--.', h: '....', i: '..', j: '.---', k: '-.-', l: '.-..', m: '--', n: 
-'-.', o: '---', p: '.--.', q: '--.-', r: '.-.', s: '...', t: '-', u: '..-', v: '
+$morse = {a: '.-', b: '-...', c: '-.-.', d: '-..', e: '.',
+f: '..-.', g: '--.', h: '....', i: '..', j: '.---', k: '-.-', l: '.-..', m: '--',
+n: '-.', o: '---', p: '.--.', q: '--.-', r: '.-.', s: '...', t: '-', u: '..-', v: '
 ...-', w: '.--', x: '-..-', y: '-.--', z: '--..'}
 
 def decode_char(str)
@@ -16,4 +16,13 @@ def decode_word(str)
   solution
 end
 
-puts decode_word("-- -.--")
+def decode_message(str)
+  words = str.split("   ")
+  solution = ""
+  words.each do |w|
+    solution += decode_word(w) + " "
+  end
+  solution
+end
+
+puts decode_message(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
